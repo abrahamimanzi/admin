@@ -1,0 +1,5 @@
+$a = json_encode( array('a'=>1, 'b'=>2, 'c'=>'I <3 JSON') );
+echo $a;
+// Outputs: {"a":1,"b":2,"c":"I <3 JSON"}
+$b = json_decode( $a );
+echo "$b->a, $b->b, $b->c";

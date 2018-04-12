@@ -1,0 +1,163 @@
+# Turn Rewrite Engine On
+RewriteEngine on
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Index
+ RewriteRule ^applicants(/*)$ index.php?request=applicants
+ RewriteRule ^applicants/new(/*)$ index.php?request=newapplicant
+ RewriteRule ^applicants/edit/([0-9]+)(/*)$ index.php?request=editapplicant&id=$1
+ 
+	# pagination
+ RewriteRule ^applicants/page(/*)$ index.php?request=applicants&page=$1
+ RewriteRule ^applicants/page/([0-9]+)(/*)$ index.php?request=applicants&page=$1
+ 
+# Set The Users page
+ RewriteRule ^usr(/*)$ index.php?request=user
+ RewriteRule ^usr/([0-9]+)(/*)$ index.php?request=user&ID=$1
+ RewriteRule ^usr/new(/*)$ index.php?request=newuser
+ RewriteRule ^usr/edit/([0-9]+)(/*)$ index.php?request=edituser&id=$1
+	# pagination
+ RewriteRule ^usr/page(/*)$ index.php?request=users&page=$1
+ RewriteRule ^usr/page/([0-9]+)(/*)$ index.php?request=users&page=$1ants&page=$1
+ 
+ 
+#-----------------------------------------------#
+# Set The Messager page
+#-----------------------------------------------#
+ 
+ RewriteRule ^project/([a-z]+)(/*)$ index.php?request=project&trunk=$1
+
+#-----------------------------------------------#
+# Set The Messager page
+#-----------------------------------------------#
+
+ RewriteRule ^msg(/*)$ index.php?request=messager
+ RewriteRule ^msg/([0-9]+)(/*)$ index.php?request=messager&ID=$1
+	# pagination
+ RewriteRule ^msg/page(/*)$ index.php?request=messager&page=$1
+ RewriteRule ^msg/page/([0-9]+)(/*)$ index.php?request=messager&page=$1
+ 
+ 
+#-----------------------------------------------#
+# Set The Notes page
+#-----------------------------------------------#
+ 
+# Set The Notes page
+ RewriteRule ^notes(/*)$ index.php?request=notes
+ 
+#-----------------------------------------------#
+# Set Apps page
+#-----------------------------------------------#
+
+ RewriteRule ^apps(/*)$ index.php?request=app
+ RewriteRule ^app/([a-zA-Z0-9]+)(/*)$ index.php?request=app&idname=$1
+ RewriteRule ^app/([a-zA-Z0-9]+)/([a-z]+)(/*)$ index.php?request=app&idname=$1&trunk=$2
+ RewriteRule ^app/([a-zA-Z0-9]+)/([0-9]+)(/*)$ index.php?request=app&idname=$1&trunk=home&id=$2
+ RewriteRule ^app/([a-zA-Z0-9]+)/([0-9]+)/([a-z-]+)(/*)$ index.php?request=app&idname=$1&trunk=home&id=$2&branch=$3
+ RewriteRule ^app/([a-zA-Z0-9]+)/([0-9]+)/([a-z-]+)/([a-zA-Z0-9]+)(/*)$ index.php?request=app&idname=$1&trunk=home&id=$2&branch=$3&iditem=$4
+ RewriteRule ^app/([a-zA-Z0-9]+)/([0-9]+)/([a-z-]+)/([a-z]+)/([a-zA-Z0-9]+)(/*)$ index.php?request=app&idname=$1&trunk=home&id=$2&branch=$3&search=$4
+ 
+#-----------------------------------------------#
+# Set Company page
+#-----------------------------------------------#
+
+ RewriteRule ^company(/*)$ index.php?request=company
+ RewriteRule ^company/([0-9]+)(/*)$ index.php?request=company&ID=$1
+ RewriteRule ^company/([a-z]+)(/*)$ index.php?request=company&trunk=$1
+ RewriteRule ^company/([a-z]+)/([a-z]+)(/*)$ index.php?request=company&trunk=$1&branch=$2
+ RewriteRule ^company/([a-z]+)/([0-9]+)/([a-z-]+)(/*)$ index.php?request=company&trunk=$1&id=$2&branch=$3
+ RewriteRule ^export/([0-9]+)(/*)$ export.php?id=$1
+ RewriteRule ^exportsearch/(/*)$ exportsearch.php
+ RewriteRule ^exportforapproval/(/*)$ exportforapproval.php
+ RewriteRule ^exportdelegate/(/*)$ exportdelegate.php
+ RewriteRule ^exportexhibitor/(/*)$ exportexhibitor.php
+ RewriteRule ^exportftg/(/*)$ exportftg.php
+ RewriteRule ^exportmedia/(/*)$ exportmedia.php
+ RewriteRule ^exportmsgeek/(/*)$ exportmsgeek.php
+ RewriteRule ^exportpendingbanktransfer/(/*)$ exportpendingbanktransfer.php
+ RewriteRule ^exportspeaker/(/*)$ exportspeaker.php
+ RewriteRule ^exportvisitor/(/*)$ exportvisitor.php
+ RewriteRule ^exportapproved/(/*)$ exportapproved.php
+ RewriteRule ^exportdenied/(/*)$ exportdenied.php
+ RewriteRule ^exportpending/(/*)$ exportpending.php
+ RewriteRule ^exportgovernment/(/*)$ exportgovernment.php
+ RewriteRule ^exportparticipants/(/*)$ exportparticipants.php
+ 
+ RewriteRule ^players/([0-9]+)/([0-9a-zA-Z_-]+)(/*)$ players.php?id=$1&action=$2
+ RewriteRule ^players/([0-9]+)(/*)$ players.php?id=$1
+ RewriteRule ^players/search/([0-9a-zA-Z_-]+)(/*)$ players.php?search=$1
+ RewriteRule ^players/search(/*)$ players.php?search=$1
+ 
+# Set The Participants page
+ RewriteRule ^applicants(/*)$ index.php?request=applicants
+ RewriteRule ^applicants/new(/*)$ index.php?request=newapplicant
+ RewriteRule ^applicants/edit/([0-9]+)(/*)$ index.php?request=editapplicant&id=$1
+	# pagination
+ RewriteRule ^applicants/page(/*)$ index.php?request=applicants&page=$1
+ RewriteRule ^applicants/page/([0-9]+)(/*)$ index.php?request=applicants&page=$1
+ 
+# Set The Events page
+ RewriteRule ^events(/*)$ index.php?request=events
+ RewriteRule ^events/new(/*)$ index.php?request=newevent
+ RewriteRule ^events/edit/([0-9]+)(/*)$ index.php?request=editevent&id=$1
+ RewriteRule ^events/([0-9]+)(/*)$ index.php?request=event&id=$1
+ RewriteRule ^events/([0-9]+)/([0-9a-zA-Z_-]+)(/*)$ index.php?request=event&id=$1&menu=$2
+	# pagination
+ RewriteRule ^events/page(/*)$ index.php?request=events&page=$1
+ RewriteRule ^events/page/([0-9]+)(/*)$ index.php?request=events&page=$1
+ 
+ RewriteRule ^players/subpage/([a-zA-Z_-]+)(/*)$ players.php?subpage=$1
+ 
+# Set The Events page
+RewriteRule ^printer(/*)$ index.php?request=printer
+RewriteRule ^printer/([0-9]+)(/*)$ index.php?request=printer&id=$1
+
+
+
+#-----------------------------------------------#
+# Set Signup pages
+#-----------------------------------------------#
+
+ RewriteRule ^signup(/*)$ signup.php
+ 
+#-----------------------------------------------#
+
+
+#-----------------------------------------------#
+# Set Login pages
+#-----------------------------------------------#
+
+ RewriteRule ^login(/*)$ login.php?request=login
+ RewriteRule ^login/([a-z]+)(/*)$ login.php?request=$1
+ RewriteRule ^login/([a-z]+)/([a-z]+)(/*)$ login.php?request=$1&response=$2
+ RewriteRule ^login/([a-z]+)/([0-9A-Z]+)(/*)$ login.php?request=$1&response=$2
+ RewriteRule ^login/([a-z]+)/([0-9]+)/([0-9A-Z]+)(/*)$ login.php?request=$1&id=$2&code=$3
+ 
+#-----------------------------------------------#
+
+
+#-----------------------------------------------#
+# Badges
+#-----------------------------------------------#
+
+ RewriteRule ^badge/([0-9A-Z]+)(/*)$ badge.php?id=$1
+
+
+#-----------------------------------------------#
+
+
+#-----------------------------------------------#
+# Set Global pages
+#-----------------------------------------------#
+
+ RewriteRule ^([a-z]+)(/*)$ index.php?request=$1
+ 
+#-----------------------------------------------#
+
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
